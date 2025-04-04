@@ -1,0 +1,10 @@
+# Dependency directories
+/node_modules
+/dist
+
+# macOS specific files
+# Prevents cross-platform issues
+.DS_Store
+
+# Configuration keys
+.env

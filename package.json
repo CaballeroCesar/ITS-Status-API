@@ -1,0 +1,35 @@
+{
+    "name": "coe-its-status",
+    "version": "0.0.1",
+    "description": "",
+    "author": "",
+    "private": true,
+    "license": "UNLICENSED",
+    "scripts": {
+        "start": "nest start",
+        "start:dev": "nest start --watch"
+    },
+    "dependencies": {
+        "@nestjs/common": "^11.0.1",
+        "@nestjs/config": "^4.0.0",
+        "@nestjs/core": "^11.0.1",
+        "@nestjs/platform-express": "^11.0.1",
+        "@slack/web-api": "^7.9.1",
+        "dotenv": "^16.4.7",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "reflect-metadata": "^0.2.2",
+        "rxjs": "^7.8.1"
+    },
+    "devDependencies": {
+        "@nestjs/cli": "^11.0.0",
+        "@types/estree": "^1.0.7",
+        "@types/node": "^22.10.7",
+        "@types/react": "^19.1.0",
+        "@types/react-dom": "^19.1.1",
+        "eslint": "^9.18.0",
+        "ts-node": "^10.9.2",
+        "tsx": "^4.19.3",
+        "typescript": "^5.7.3"
+    }
+}
