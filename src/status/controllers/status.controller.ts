@@ -8,11 +8,16 @@ export class StatusController {
   // Route to fetch information for all users
   @Get('slack/users')
   async getUsersInfo() {
-    const usersInfo = await this.statusService.getUsersInfo();
-    if (usersInfo.length > 0) {
-      return usersInfo;  // Return user data if found
-    } else {
-      return { message: 'No user data found or error fetching user information' };
+    try {
+      const usersInfo = await this.statusService.getUsersInfo();
+      if (usersInfo.length > 0) {
+        return usersInfo; 
+      } else {
+        return { message: 'No user data found or error fetching user information' };
+      }
+    } catch (error) {
+        console.error(error)
+        return error;
     }
   }
 }
