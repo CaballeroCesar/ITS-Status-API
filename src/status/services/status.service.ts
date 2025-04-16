@@ -8,10 +8,9 @@ export class StatusService {
   private userIds: string[];
 
   constructor(private configService: ConfigService) {
-    // Initialize Slack client with the Slack bot token from environment variables
     this.slackClient = new WebClient(this.configService.get<string>('SLACK_BOT_TOKEN'));
 
-    // Fetch user IDs from environment variables without fallback values
+    // Fetch user IDs from environment variables
     const Aaron = this.configService.get<string>('AARON');
     const Sushma = this.configService.get<string>('SUSHMA');
     const Tanuja = this.configService.get<string>('TANUJA');
@@ -26,7 +25,7 @@ export class StatusService {
 
     // Check if user IDs are defined, throw an error if any of them are missing
     if (!Aaron || !Sushma || !Tanuja || !Carmen || !Joe || !Crystal || !Fabi || !Sonia || !Chris || !Cesar || !Amanda) {
-      throw new Error('Missing one or more Slack user IDs in the environment variables');
+      throw new Error('Missing one or more Slack user IDs');
     }
 
     // Assign the fetched user IDs to the array
@@ -47,7 +46,10 @@ export class StatusService {
             id: userRes.user.id,
             real_name: userRes.user.real_name,
             image: userRes.user.profile.image_192,
-            presence: presenceRes.presence, // 'active' or 'away'
+            presence: presenceRes.presence,
+            status_text: userRes.user.profile.status_text,
+            status_emoji: userRes.user.profile.status_emoji,
+            huddle_state: userRes.user.profile.huddle_state,
           });
         }
       } catch (error) {
