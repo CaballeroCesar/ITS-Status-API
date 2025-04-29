@@ -7,7 +7,7 @@ export class StatusController {
 
   // Route to fetch information for all users
   @Get('slack/users')
-  async getUsersInfo() {
+  private async getUsersInfo() {
     try {
       const usersInfo = await this.statusService.getUsersInfo();
       if (usersInfo.length > 0) {

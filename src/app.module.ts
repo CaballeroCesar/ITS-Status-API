@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { StatusController } from './status/controllers/status.controller';
 import { StatusService } from './status/services/status.service';
-import { ConfigModule } from '@nestjs/config';  // Import ConfigModule
+import { ConfigModule } from '@nestjs/config'; 
 
 @Module({
-  imports: [ConfigModule.forRoot()],  // Ensure the configuration module is set up
+  imports: [ConfigModule.forRoot({ isGlobal: true })], 
   controllers: [StatusController],
   providers: [StatusService],
 })
